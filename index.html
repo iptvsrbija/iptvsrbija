@@ -1,128 +1,585 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <title>IPTV Paketi</title>
-  <meta name="description" content="Najbolji izbor za IPTV televiziju sa paketima od 1, 3, 6 i 12 meseci. Uživajte u omiljenim kanalima uz povoljne cene!">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/logo-h_ly8nlpml.png" type="image/x-icon">
+    <meta name="description" content="Najbolji izbor za IPTV televiziju sa paketima od 1, 3, 6 i 12 meseci. Uživajte u omiljenim kanalima uz povoljne cene!">
+    <title>IPTV Paketi</title>
+    
+    <!-- CSS fajlovi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/parallax/jarallax.css">
+    <link rel="stylesheet" href="assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap"></noscript>
+    <link rel="stylesheet" href="assets/css/mbr-additional.css" type="text/css">
+    
+    <style>
+        /* Stilovi za strelicu za preuzimanje */
+        .download-arrow {
+            position: fixed;
+            top: 60px;
+            right: 38px;
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
 
-  <link rel="shortcut icon" href="../r.mobirisesite.com/374573/assets/images/logo-h_ly8nlpml.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="../r.mobirisesite.com/374573/assets/web/assets/mobirise-icons2/mobirise2_rnd%3D1720300522367.css">
-  <link rel="stylesheet" href="../r.mobirisesite.com/374573/assets/bootstrap/css/bootstrap.min_rnd%3D1720300522368.css">
-  <link rel="stylesheet" href="../r.mobirisesite.com/374573/assets/bootstrap/css/bootstrap-grid.min_rnd%3D1720300522368.css">
-  <link rel="stylesheet" href="../r.mobirisesite.com/374573/assets/bootstrap/css/bootstrap-reboot.min_rnd%3D1720300522368.css">
-  <link rel="stylesheet" href="../r.mobirisesite.com/374573/assets/parallax/jarallax_rnd%3D1720300522368.css">
-  <link rel="stylesheet" href="../r.mobirisesite.com/374573/assets/dropdown/css/style_rnd%3D1720300522368.css">
-  <link rel="stylesheet" href="../r.mobirisesite.com/374573/assets/socicon/css/styles_rnd%3D1720300522368.css">
-  <link rel="stylesheet" href="../r.mobirisesite.com/374573/assets/theme/css/style_rnd%3D1720300522368.css">
-  <link rel="stylesheet" href="../r.mobirisesite.com/374573/assets/css/mbr-additional_rnd%3D1720300522368.css" type="text/css">
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid #007bff;
+        }
 
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap"></noscript>
+        .download-arrow p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            color: #ffffff;
+            position: fixed;
+            top: 80px;
+            right: 30px;
+        }
 
-  <style>
-    /* Strelica za preuzimanje */
-    .download-arrow {
-      position: fixed;
-      top: 60px;
-      right: 38px;
-      text-align: center;
-      display: none;
-      z-index: 9999;
-    }
-    .arrow {
-      width: 0;
-      height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 20px solid #007bff;
-    }
-    .download-arrow p {
-      margin: 5px 0 0 0;
-      font-size: 16px;
-      color: #ffffff;
-      position: fixed;
-      top: 80px;
-      right: 30px;
-    }
-    /* Prikazi strelicu samo na mobilnim uređajima */
-    @media (max-width: 768px) {
-      .download-arrow {
-        display: block;
-      }
-    }
-  </style>
+        @media (max-width: 768px) {
+            .download-arrow {
+                display: block;
+            }
+        }
+
+        /* Stilovi za chat widget */
+        .chat-widget {
+            width: 220px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            display: none;
+        }
+        
+        .chat-header {
+            background-color: #25d366;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .chat-toggle-button {
+            position: fixed;
+            bottom: 80px;
+            right: 10px;
+            z-index: 1000;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 3px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        /* Stilovi za strelicu za povratak na vrh */
+        .scrollToTop {
+            position: fixed;
+            left: -50px;
+            bottom: 20px;
+            width: 30px;
+            height: 30px;
+            z-index: 9999;
+            transition: left 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .scrollToTop a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        
+        .scrollToTop svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            fill: rgba(0, 0, 0, 0.5);
+            transition: fill 0.3s ease;
+        }
+        
+        .scrollToTop:hover svg {
+            fill: rgba(0, 0, 0, 0.7);
+        }
+    </style>
 </head>
-
 <body>
-
-  <!-- Strelica -->
+  <!-- Strelica za preuzimanje aplikacije -->
   <div class="download-arrow">
-    <div class="arrow"></div>
-    <p>Preuzmi aplikaciju</p>
+      <div class="arrow"></div>
+      <p>Preuzmi aplikaciju</p>
   </div>
 
   <!-- Navigacija -->
   <section data-bs-version="5.1" class="menu menu1 cid-uhEwbjp6oG" once="menu" id="menu01-f">
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-      <div class="container">
-        <div class="navbar-brand">
-          <span class="navbar-logo">
-            <a href="https://iptvsrbija.online">
-              <img src="../r.mobirisesite.com/374573/assets/images/logo-h_ly8nlpml.png" alt="iptv" style="height: 3rem;">
-            </a>
-          </span>
-          <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-44" href="https://iptvsrbija.online">iptv.srbija</a></span>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-          <div class="hamburger">
-            <span></span><span></span><span></span><span></span>
-          </div>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav nav-dropdown">
-            <li class="nav-item"><a class="nav-link" href="https://iptvsrbija.online/iptv-smarters-4.0.3.apk"><span class="socicon socicon-android mbr-iconfont" style="font-size:30px;"></span></a></li>
-            <li class="nav-item"><a class="nav-link" href="https://apps.apple.com/rs/app/smarters-player-lite/id1628995509#"><span class="socicon socicon-apple mbr-iconfont" style="font-size:30px;"></span></a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><span class="mobi-mbri mobi-mbri-download mbr-iconfont" style="font-size:30px;"></span></a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Ukucajte u downloaderu kod <b>320337</b> kako biste skinuli aplikaciju</a>
+      <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+          <div class="container">
+              <div class="navbar-brand">
+                  <span class="navbar-logo">
+                      <a href="https://iptvsrbija.online">
+                          <img src="assets/images/logo-h_ly8nlpml.png" alt="IPTV Srbija" style="height: 3rem;">
+                      </a>
+                  </span>
+                  <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-44" href="https://iptvsrbija.online">iptv.srbija</a></span>
               </div>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="https://www.dropbox.com/scl/fi/9v81rvlnlx5012gwvvgw4/IPTVSmartersPro.exe?rlkey=jpnw7uve0c1xqwkb1dybuhn43&dl=1"><span class="socicon socicon-windows mbr-iconfont" style="font-size:30px;"></span></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <div class="hamburger">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </div>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                      <li class="nav-item"><a class="nav-link link text-black show text-primary display-4" href="https://iptvsrbija.online/iptv-smarters-4.0.3.apk" aria-expanded="true" data-bs-auto-close="outside"><span class="socicon socicon-android mbr-iconfont mbr-iconfont-btn" style="font-size: 30px;"></span></a></li>
+                      <li class="nav-item"><a class="nav-link link text-black show text-primary display-4" href="https://apps.apple.com/rs/app/smarters-player-lite/id1628995509" aria-expanded="true" data-bs-auto-close="outside"><span class="socicon socicon-apple mbr-iconfont mbr-iconfont-btn" style="font-size: 30px;"></span></a></li>
+                      <li class="nav-item dropdown"><a class="nav-link link text-black text-primary dropdown-toggle display-4" href="#" aria-expanded="false" data-bs-auto-close="outside" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"><span class="mobi-mbri mobi-mbri-download mbr-iconfont mbr-iconfont-btn" style="font-size: 30px;"></span></a>
+                          <div class="dropdown-menu" aria-labelledby="dropdown-621"><a class="text-black show text-primary dropdown-item display-4" href="https://apps.apple.com/rs/app/smarters-player-lite/id1628995509" aria-expanded="true" data-bs-auto-close="outside">Ukucajte u downloaderu kod <b>320337</b> kako biste skinuli aplikaciju</a></div>
+                      </li>
+                      <li class="nav-item"><a class="nav-link link text-black show text-primary display-4" href="https://www.dropbox.com/scl/fi/9v81rvlnlx5012gwvvgw4/IPTVSmartersPro.exe?rlkey=jpnw7uve0c1xqwkb1dybuhn43&amp;st=kriqyeo9&amp;dl=1" aria-expanded="true" data-bs-auto-close="outside"><span class="socicon socicon-windows mbr-iconfont mbr-iconfont-btn" style="font-size: 30px;"></span></a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
   </section>
 
   <!-- Hero sekcija -->
   <section data-bs-version="5.1" class="header18 cid-u8MMOTcSH8 mbr-fullscreen" id="hero-16-u8MMOTcSH8">
-    <div class="mbr-overlay" style="opacity:0.3; background:#000;"></div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="content-wrap col-12">
-          <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-5"><strong>Najbolja Ponuda IPTV Programa</strong></h1>
-          <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7"><strong><em>Dobrodošli u svet IPTV zabave gde se svaki trenutak računa. Naša misija je da vam pružimo najbolje televizijsko iskustvo bez kompromisa.</em></strong></p>
-          <div class="mbr-section-btn"><a class="btn btn-white-outline" href="https://iptvsrbija.online/lista-kanala">Lista kanala</a></div>
-          <div class="mbr-section-btn"><a class="btn btn-white-outline" href="#features06-8">Uputstvo</a></div>
-        </div>
+      <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);"></div>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="content-wrap col-12 col-md-12">
+                  <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-5"><strong>Najbolja Ponuda IPTV Programa</strong></h1>
+                  <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7"><br><strong><em>Dobrodošli u svet IPTV zabave gde se svaki trenutak računa. Naša misija je da vam pružimo najbolje televizijsko iskustvo bez kompromisa.</em></strong><br><br></p>
+                  <div class="mbr-section-btn"><a class="btn btn-white-outline display-7" href="https://iptvsrbija.online/lista-kanala">Lista kanala</a></div>
+                  <div class="mbr-section-btn"><a class="btn btn-white-outline display-20" href="#features06-8">Uputstvo</a></div>
+              </div>
+          </div>
       </div>
-    </div>
   </section>
 
-  <!-- Ovde idu slike, video sekcije, paketi (nisam menjao dalje jer su već dobro strukturisane u tvom kodu) -->
+  <!-- Galerija slika -->
+  <section data-bs-version="5.1" class="features13 start cid-u8RRouq1sg" id="features013-7">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="item features-image col-6 col-md-4 col-lg-2 text-center">
+                  <div class="item-wrapper">
+                      <div class="item-img">
+                          <img src="assets/images/shop6-h_lujk0wgx.jpg" alt="IPTV Srbija" class="img-fluid">
+                      </div>
+                  </div>
+              </div>
+              <div class="item features-image col-6 col-md-4 col-lg-2 text-center">
+                  <div class="item-wrapper">
+                      <div class="item-img">
+                          <img src="images/download3240241.jpg" alt="IPTV aplikacija" class="img-fluid">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
 
-  <script>
-    // animacija strelice
-    const arrow = document.querySelector('.arrow');
-    let position = 0;
-    setInterval(() => {
-      position += 5;
-      arrow.style.transform = `translateY(${Math.sin(position / 20) * 5}px)`;
-    }, 100);
-  </script>
+  <!-- Video uputstvo -->
+  <section data-bs-version="5.1" class="features6 start cid-u8S677fXmY" id="features06-8">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-6">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/oxhg1sFBeYo" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="col-md-6">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/MI1nxoQ-rM0" frameborder="0" allowfullscreen></iframe>
+              </div>
+          </div>
+          <div class="row mt-4">
+              <div class="col-md-6 text-center">
+                  <p>Korak 1</p>
+                  <img src="https://iptvsrbija.online/iptv2%C5%BE.jpg" alt="Korak 1" class="img-fluid" style="max-width: 80%; height: auto; margin-left: 10%;">
+              </div>
+              <div class="col-md-6 text-center">
+                  <p>Korak 2</p>
+                  <img src="https://iptvsrbija.online/iptv.jpg" alt="Korak 2" class="img-fluid" style="max-width: 80%; height: auto; margin-left: 10%;">
+              </div>
+          </div>
+      </div>
+  </section>
 
-</body>
-</html>
+  <!-- Cene paketa -->
+  <section data-bs-version="5.1" class="pricing1 cid-u8MMOTmqUh mbr-parallax-background" id="pricing-cards-1-u8MMOTmqUh">
+      <div class="container">
+          <div class="row">
+              <!-- Paket za 1 Mesec -->
+              <div class="item features-without-image col-12 col-md-6 col-lg-3 item-mb active">
+                  <div class="item-wrapper">
+                      <div class="item-head">
+                          <h5 class="item-title mbr-fonts-style mb-0 display-7"><strong><em>Paket za 1</em></strong></h5>
+                          <h6 class="item-subtitle mbr-fonts-style mt-0 mb-0 display-7">
+                              <strong>&nbsp;Mesec</strong><br>
+                              <strong>1199rsd/10€</strong><br>
+                              <strong>1 uređaj</strong>
+                          </h6>
+                      </div>
+                      <div class="item-content">
+                          <p class="mbr-text mbr-fonts-style display-7">
+                              Uživajte u najboljim kanalima i sadržajima za samo 1199rsd/10€ mesečno. <br>
+                              <strong>Bez ugovorne obaveze.</strong><br><br>
+                          </p>
+                      </div>
+                      <div class="mbr-section-btn item-footer">
+                          <a href="https://wa.me/381644514740" class="btn item-btn btn-success display-100 icon-wrapper whatsapp-icon">
+                              <i class="fab fa-whatsapp fa-2x"></i>
+                          </a>
+                          <a href="viber://chat?number=381644514740" class="btn item-btn btn-primary display-100 icon-wrapper viber-icon">
+                              <i class="fab fa-viber fa-2x"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Ostali paketi (slično kao gore) -->
+              <!-- Paket za 3 Meseca -->
+              <div class="item features-without-image col-12 col-md-6 col-lg-3 item-mb">
+                  <div class="item-wrapper">
+                      <div class="item-head">
+                          <h5 class="item-title mbr-fonts-style mb-0 display-7">
+                              <strong><em>Paket za 3</em></strong><br>
+                              <strong>Meseca</strong>
+                          </h5>
+                          <h6 class="item-subtitle mbr-fonts-style mt-0 mb-0 display-7">
+                              <strong>2999rsd/25€</strong><br>
+                              <strong>1 uređaj</strong>
+                          </h6>
+                      </div>
+                      <div class="item-content">
+                          <p class="mbr-text mbr-fonts-style display-7">
+                              Uštedite i uživajte u IPTV-u sa našim paketom od 3 meseca za samo 2999rsd/25€. <br>
+                              <strong>Bez ugovorne obaveze.</strong><br><br>
+                          </p>
+                      </div>
+                      <div class="mbr-section-btn item-footer">
+                          <a href="https://wa.me/381644514740" class="btn item-btn btn-success display-100 icon-wrapper whatsapp-icon">
+                              <i class="fab fa-whatsapp fa-2x"></i>
+                          </a>
+                          <a href="viber://chat?number=381644514740" class="btn item-btn btn-primary display-100 icon-wrapper viber-icon">
+                              <i class="fab fa-viber fa-2x"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Paket za 6 Meseci -->
+              <div class="item features-without-image col-12 col-md-6 col-lg-3 item-mb">
+                  <div class="item-wrapper">
+                      <div class="item-head">
+                          <h5 class="item-title mbr-fonts-style mb-0 display-7">
+                              <strong><em>Paket za 6</em></strong><br>
+                              <strong>Meseci</strong>
+                          </h5>
+                          <h6 class="item-subtitle mbr-fonts-style mt-0 mb-0 display-7">
+                              <strong>4999rsd/43€</strong><br>
+                              <strong>1 uređaj</strong>
+                          </h6>
+                      </div>
+                      <div class="item-content">
+                          <p class="mbr-text mbr-fonts-style display-7">
+                              Najbolja vrednost za sve ljubitelje TV sadržaja. Uz ovaj paket dobijate 6 meseci za 4999rsd/43€. <br>
+                              <strong>Bez ugovorne obaveze.</strong><br><br>
+                          </p>
+                      </div>
+                      <div class="mbr-section-btn item-footer">
+                          <a href="https://wa.me/381644514740" class="btn item-btn btn-success display-100 icon-wrapper whatsapp-icon">
+                              <i class="fab fa-whatsapp fa-2x"></i>
+                          </a>
+                          <a href="viber://chat?number=381644514740" class="btn item-btn btn-primary display-100 icon-wrapper viber-icon">
+                              <i class="fab fa-viber fa-2x"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Paket za 12 Meseci -->
+              <div class="item features-without-image col-12 col-md-6 col-lg-3 item-mb">
+                  <div class="item-wrapper">
+                      <div class="item-head">
+                          <h5 class="item-title mbr-fonts-style mb-0 display-7">
+                              <strong><em>Paket za 12</em></strong><br>
+                              <strong>Meseci</strong>
+                          </h5>
+                          <h6 class="item-subtitle mbr-fonts-style mt-0 mb-0 display-7">
+                              <strong>7999rsd/69€</strong><br>
+                              <strong>1 uređaj</strong>
+                          </h6>
+                      </div>
+                      <div class="item-content">
+                          <p class="mbr-text mbr-fonts-style display-7">
+                              Najpovoljnija opcija za godišnju pretplatu. Uživajte u IPTV-u cele godine za samo 7999rsd/69€. <br>
+                              <strong>Bez ugovorne obaveze.</strong><br><br>
+                          </p>
+                      </div>
+                      <div class="mbr-section-btn item-footer">
+                          <a href="https://wa.me/381644514740" class="btn item-btn btn-success display-100 icon-wrapper whatsapp-icon">
+                              <i class="fab fa-whatsapp fa-2x"></i>
+                          </a>
+                          <a href="viber://chat?number=381644514740" class="btn item-btn btn-primary display-100 icon-wrapper viber-icon">
+                              <i class="fab fa-viber fa-2x"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Ostali paketi za 2 uređaja... -->
+              <!-- Paket za 1 Mesec (2 uređaja) -->
+              <div class="item features-without-image col-12 col-md-6 col-lg-3 item-mb">
+                  <div class="item-wrapper">
+                      <div class="item-head">
+                          <h5 class="item-title mbr-fonts-style mb-0 display-7">
+                              <strong><em>Paket za 1</em></strong><br>
+                              <strong>Mesec</strong>
+                          </h5>
+                          <h6 class="item-subtitle mbr-fonts-style mt-0 mb-0 display-7">
+                              <strong>2199rsd/19€</strong><br>
+                              <strong>2 uređaja</strong>
+                          </h6>
+                      </div>
+                      <div class="item-content">
+                          <p class="mbr-text mbr-fonts-style display-7">
+                              Uživajte u najboljim kanalima i sadržajima za samo 2199rsd/19€ mesečno na dva TV-a.<br>
+                              <strong>Bez ugovorne obaveze.</strong><br><br>
+                          </p>
+                      </div>
+                      <div class="mbr-section-btn item-footer">
+                          <a href="https://wa.me/381644514740" class="btn item-btn btn-success display-100 icon-wrapper whatsapp-icon">
+                              <i class="fab fa-whatsapp fa-2x"></i>
+                          </a>
+                          <a href="viber://chat?number=381644514740" class="btn item-btn btn-primary display-100 icon-wrapper viber-icon">
+                              <i class="fab fa-viber fa-2x"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Paket za 3 Meseca (2 uređaja) -->
+              <div class="item features-without-image col-12 col-md-6 col-lg-3 item-mb">
+                  <div class="item-wrapper">
+                      <div class="item-head">
+                          <h5 class="item-title mbr-fonts-style mb-0 display-7">
+                              <strong><em>Paket za 3</em></strong><br>
+                              <strong>Meseca</strong>
+                          </h5>
+                          <h6 class="item-subtitle mbr-fonts-style mt-0 mb-0 display-7">
+                              <strong>4999rsd/43€</strong><br>
+                              <strong>2 uređaja</strong>
+                          </h6>
+                      </div>
+                      <div class="item-content">
+                          <p class="mbr-text mbr-fonts-style display-7">
+                              Uštedite i uživajte u IPTV-u sa našim paketom od 3 meseca za samo 4999rsd/43€ na dva TV-a.<br>
+                              <strong>Bez ugovorne obaveze.</strong><br><br>
+                          </p>
+                      </div>
+                      <div class="mbr-section-btn item-footer">
+                          <a href="https://wa.me/381644514740" class="btn item-btn btn-success display-100 icon-wrapper whatsapp-icon">
+                              <i class="fab fa-whatsapp fa-2x"></i>
+                          </a>
+                          <a href="viber://chat?number=381644514740" class="btn item-btn btn-primary display-100 icon-wrapper viber-icon">
+                              <i class="fab fa-viber fa-2x"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Paket za 6 Meseci (2 uređaja) -->
+              <div class="item features-without-image col-12 col-md-6 col-lg-3 item-mb">
+                  <div class="item-wrapper">
+                      <div class="item-head">
+                          <h5 class="item-title mbr-fonts-style mb-0 display-7">
+                              <strong><em>Paket za 6</em></strong><br>
+                              <strong>Meseci</strong>
+                          </h5>
+                          <h6 class="item-subtitle mbr-fonts-style mt-0 mb-0 display-7">
+                              <strong>8999rsd/77€</strong><br>
+                              <strong>2 uređaja</strong>
+                          </h6>
+                      </div>
+                      <div class="item-content">
+                          <p class="mbr-text mbr-fonts-style display-7">
+                              Najbolja vrednost za sve ljubitelje TV sadržaja. Uz ovaj paket dobijate 6 meseci za 8999rsd/77€ na dva TV-a.<br>
+                              <strong>Bez ugovorne obaveze.</strong><br><br>
+                          </p>
+                      </div>
+                      <div class="mbr-section-btn item-footer">
+                          <a href="https://wa.me/381644514740" class="btn item-btn btn-success display-100 icon-wrapper whatsapp-icon">
+                              <i class="fab fa-whatsapp fa-2x"></i>
+                          </a>
+                          <a href="viber://chat?number=381644514740" class="btn item-btn btn-primary display-100 icon-wrapper viber-icon">
+                              <i class="fab fa-viber fa-2x"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Paket za 12 Meseci (2 uređaja) -->
+              <div class="item features-without-image col-12 col-md-6 col-lg-3 item-mb">
+                  <div class="item-wrapper">
+                      <div class="item-head">
+                          <h5 class="item-title mbr-fonts-style mb-0 display-7">
+                              <strong><em>Paket za 12</em></strong><br>
+                              <strong>Meseci</strong>
+                          </h5>
+                          <h6 class="item-subtitle mbr-fonts-style mt-0 mb-0 display-7">
+                              <strong>11999rsd/100€</strong><br>
+                              <strong>2 uređaja</strong>
+                          </h6>
+                      </div>
+                      <div class="item-content">
+                          <p class="mbr-text mbr-fonts-style display-7">
+                              Najpovoljnija opcija za godišnju pretplatu. Uživajte u IPTV-u cele godine na dva TV-a za samo 11999rsd/100€. <br>
+                              <strong>Bez ugovorne obaveze.</strong><br><br>
+                          </p>
+                      </div>
+                      <div class="mbr-section-btn item-footer">
+                          <a href="https://wa.me/381644514740" class="btn item-btn btn-success display-100 icon-wrapper whatsapp-icon">
+                              <i class="fab fa-whatsapp fa-2x"></i>
+                          </a>
+                          <a href="viber://chat?number=381644514740" class="btn item-btn btn-primary display-100 icon-wrapper viber-icon">
+                              <i class="fab fa-viber fa-2x"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Recenzije -->
+  <section data-bs-version="5.1" class="people04 cid-u8Sptcuuc6" id="people04-9">
+      <div class="container">
+          <div class="row mb-5 justify-content-center">
+              <div class="col-12 mb-0 content-head">
+                  <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Recenzije</strong></h3>
+              </div>
+          </div>
+          <div class="row mbr-masonry" data-masonry="{&quot;percentPosition&quot;: true }">
+              <div class="item features-without-image col-12 col-md-6 col-lg-4 active">
+                  <div class="item-wrapper">
+                      <div class="card-box align-left">
+                          <p class="card-text mbr-fonts-style display-7">
+                              Najbolja usluga ikada! Sve kanale koje volim sam dobio u jednom paketu i sport klub i arene i eurosport i mnogo serija i filmova sa prevodom. Hvala vam!
+                          </p>
+                          <div class="img-wrapper mt-4 mb-2">
+                              <img src="assets/images/photo-1656338997878-279d71d48f6e.jpeg" alt="Marko">
+                          </div>
+                          <h5 class="card-title mbr-fonts-style display-7"><strong>Marko</strong></h5>
+                      </div>
+                  </div>
+              </div>
+              <div class="item features-without-image col-12 col-md-6 col-lg-4">
+                  <div class="item-wrapper">
+                      <div class="card-box align-left">
+                          <p class="card-text mbr-fonts-style display-7">
+                              Ova IPTV usluga mi je olakšala život! S obiljem kanala u UHD rezoluciji i mogućnošću pristupa njima putem različitih uređaja, nikada ne propuštam omiljene emisije i sportske događaje. 
+                          </p>
+                          <div class="img-wrapper mt-4 mb-2">
+                              <img src="assets/images/photo-1489980721706-f487dab89c24.jpeg" alt="David">
+                          </div>
+                          <h5 class="card-title mbr-fonts-style display-7"><strong>David</strong></h5>
+                      </div>
+                  </div>
+              </div>
+              <div class="item features-without-image col-12 col-md-6 col-lg-4">
+                  <div class="item-wrapper">
+                      <div class="card-box align-left">
+                          <p class="card-text mbr-fonts-style display-7">
+                              Iznenadila me stabilnost i kvalitet prenosa čak i tokom vrhunskih događaja poput sportskih utakmica. Uz to, mogućnost prilagođavanja liste kanala prema vlastitim željama daje mi potpunu kontrolu nad onim što želim gledati.
+                          </p>
+                          <div class="img-wrapper mt-4 mb-2">
+                              <img src="assets/images/photo-1679746584014-fb31d4eb0a5e.jpeg" alt="Dušan">
+                          </div>
+                          <h5 class="card-title mbr-fonts-style display-7"><strong>Dušan</strong></h5>
+                      </div>
+                  </div>
+              </div>
+              <div class="item features-without-image col-12 col-md-6 col-lg-4">
+                  <div class="item-wrapper">
+                      <div class="card-box align-left">
+                          <p class="card-text mbr-fonts-style display-7">
+                              Preporučujem ovu IPTV uslugu svima bez rezerve! Njihova široka ponuda kanala, uz visok kvalitet slike čini je nezaobilaznim izborom za svakog ljubitelja televizije. Takođe mogućnost pristupa na više uređaja istovremeno bez gubitka performansi čini je idealnim izborom za porodice ili one koji žive s cimerima. 
+                          </p>
+                          <div class="img-wrapper mt-4 mb-2">
+                              <img src="assets/images/photo-1536763225213-b5592b525630.jpeg" alt="Tijana">
+                          </div>
+                          <h5 class="card-title mbr-fonts-style display-7"><strong>Tijana</strong></h5>
+                      </div>
+                  </div>
+              </div>
+              <div class="item features-without-image col-12 col-md-6 col-lg-4">
+                  <div class="item-wrapper">
+                      <div class="card-box align-left">
+                          <p class="card-text mbr-fonts-style display-7">Sve kanale koje volim gledati imaju visoku kvalitet slike i zvuka. Pored toga, korisničko iskustvo je izvanredno, jer je navigacija jednostavna i intuitivna. Definitivno preporučujem svima koji žele pristupiti širokom spektru programa.
+                          </p>
+                          <div class="img-wrapper mt-4 mb-2">
+                              <img src="assets/images/photo-1589571894960-20bbe2828d0a.jpeg" alt="Marija">
+                          </div>
+                          <h5 class="card-title mbr-fonts-style display-7"><strong>Marija</strong></h5>
+                      </div>
+                  </div>
+              </div>
+              <div class="item features-without-image col-12 col-md-6 col-lg-4">
+                  <div class="item-wrapper">
+                      <div class="card-box align-left">
+                          <p class="card-text mbr-fonts-style display-7">
+                              Koristim ovu IPTV uslugu već neko vreme i moram reći da sam više nego zadovoljan. Stalno unapređuju svoju ponudu dodajući nove kanale i filmove, što pokazuje njihovu predanost pružanju vrhunske usluge.
+                          </p>
+                          <div class="img-wrapper mt-4 mb-2">
+                              <img src="assets/images/photo-1671212041190-5e1c0c509f11.jpeg" alt="Stefan">
+                          </div>
+                          <h5 class="card-title mbr-fonts-style display-7"><strong>Stefan</strong></h5>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- FAQ -->
+  <section data-bs-version="5.1" class="list05 cid-u8MMOTmF6O" id="faq-3-u8MMOTmF6O">
+      <div class="container">
+          <div class="col-12 mb-5 content-head">
+              <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Često Postavljana Pitanja</strong></h3>
+          </div>
+          <div class="row justify-content-center">
+              <div class="col-12 col-lg-8">
+                  <div class="item features-without-image col-12 active">
+                      <div class="item-wrapper">
+                          <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5"><strong>Na koliko uređaja mogu da instaliram.</strong></h5>
+                          <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">Možete instalirati na bezbroj uređaja kao npr: na poslu, u školi, kod kuće na telefonu, tabletu, android tv-u, smart tv-u (LG ili Samsung) na računaru ali u isto vreme možete gledati samo na jednom uređaju ukoliko ste se pretplatili samo za jedan uređaj.</p>
+                      </div>
+                  </div>
+                  <div class="item features-without-image col-12">
+                      <div class="item-wrapper">
+                          <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5"><strong>Kako da gled
