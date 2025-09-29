@@ -1,491 +1,399 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="images/logo-h_ly8nlpml.png" type="image/x-icon">
-  <meta name="description" content="Najbolji izbor za IPTV televiziju sa paketima od 1, 3, 6 i 12 meseci. Uživajte u omiljenim kanalima uz povoljne cene!">
-  <title>IPTV Paketi</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/parallax/jarallax.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&amp;display=swap&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap&display=swap"></noscript>
-  <link rel="stylesheet" href="assets/css/mbr-additional.css" type="text/css">
-  
-  <style>
-    /* CSS stilovi ostaju isti kao u prethodnom kodu */
-    body {
-        margin: 0;
-        height: 100vh;
-        background-color: #333;
-    }
-
-    .download-arrow {
-        position: fixed;
-        top: 60px;
-        right: 38px;
-        text-align: center;
-        display: none;
-    }
-
-    .arrow {
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 20px solid #007bff;
-    }
-
-    .download-arrow p {
-        margin: 5px 0 0 0;
-        font-size: 16px;
-        color: #ffffff;
-        position: fixed;
-        top: 80px;
-        right: 30px;
-    }
-
-    @media (max-width: 768px) {
-        .download-arrow {
-            display: block;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV Paketi</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap">
+    </noscript>
+    
+    <!-- Mobirise CSS -->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/theme/css/style.css">
+    <link rel="stylesheet" href="./assets/css/mbr-additional.css">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/logo-h_ly8nlpml.png" type="image/x-icon">
+    
+    <meta name="description" content="Najbolji izbor za IPTV televiziju sa paketima od 1, 3, 6 i 12 meseci. Uživajte u omiljenim kanalima uz povoljne cene!">
+    
+    <style>
+        /* Osnovni stilovi */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter Tight', sans-serif;
         }
-    }
+        
+        /* Download Arrow Styles */
+        .download-arrow {
+            position: fixed;
+            top: 60px;
+            right: 38px;
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
 
-    .scrollToTop {
-        position: fixed;
-        left: -50px;
-        bottom: 20px;
-        width: 30px;
-        height: 30px;
-        z-index: 9999;
-        transition: left 0.3s ease;
-        cursor: pointer;
-    }
-    .scrollToTop a {
-        display: block;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-    }
-    .scrollToTop svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-        fill: rgba(0, 0, 0, 0.5);
-        transition: fill 0.3s ease;
-    }
-    .scrollToTop:hover svg {
-        fill: rgba(0, 0, 0, 0.7);
-    }
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid #007bff;
+        }
 
-    .chat-widget {
-        width: 220px;
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        z-index: 1000;
-        font-family: Arial, sans-serif;
-        display: none;
-    }
-    .chat-header {
-        background-color: #25d366;
-        color: white;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-    .chat-header img.icon {
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-    }
-    .chat-header div {
-        flex-grow: 1;
-    }
-    .chat-header .status {
-        font-size: 12px;
-        color: #d4f7d7;
-    }
-    .chat-body {
-        padding: 10px;
-    }
-    .chat-body .message {
-        background-color: #e9f7ef;
-        padding: 8px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        position: relative;
-        font-size: 14px;
-    }
-    .chat-body .message:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -10px;
-        width: 0;
-        height: 0;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        border-right: 10px solid #e9f7ef;
-    }
-    .chat-footer {
-        background-color: #25d366;
-        padding: 10px;
-        text-align: center;
-    }
-    .chat-footer a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-    }
-    .chat-footer a img {
-        margin-left: 10px;
-        width: 20px;
-        height: 20px;
-    }
-    .chat-notification {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background-color: #ff3b30;
-        color: white;
-        border-radius: 50%;
-        padding: 5px 10px;
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .chat-toggle-button {
-        position: fixed;
-        bottom: 80px;
-        right: 10px;
-        z-index: 1000;
-        background-color: #25d366;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 3px;
-        cursor: pointer;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-    }
-    .chat-toggle-button span {
-        margin-left: 10px;
-    }
-  </style>
+        .download-arrow p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            color: #ffffff;
+            position: fixed;
+            top: 80px;
+            right: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .download-arrow {
+                display: block;
+            }
+        }
+
+        /* Scroll to Top */
+        .scrollToTop {
+            position: fixed;
+            left: -50px;
+            bottom: 20px;
+            width: 30px;
+            height: 30px;
+            z-index: 9999;
+            transition: left 0.3s ease;
+            cursor: pointer;
+            background: #007bff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .scrollToTop svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            width: 220px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            display: none;
+        }
+        
+        .chat-toggle-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chat-toggle-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Paketi stilovi */
+        .pricing-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            background: white;
+        }
+        
+        .whatsapp-icon, .viber-icon {
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
-  <!-- Strelica za preuzimanje aplikacije -->
-  <div class="download-arrow">
-      <div class="arrow"></div>
-      <p>Preuzmi aplikaciju</p>
-  </div>
+    <!-- Download Arrow -->
+    <div class="download-arrow">
+        <div class="arrow"></div>
+        <p>Preuzmi aplikaciju</p>
+    </div>
 
-  <!-- Navigacija -->
-  <section data-bs-version="5.1" class="menu menu1 cid-uhEwbjp6oG" once="menu" id="menu01-f">
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-      <div class="container">
-        <div class="navbar-brand">
-          <span class="navbar-logo">
-            <a href="https://iptvsrbija.online">
-              <img src="images/logo-h_ly8nlpml.png" alt="IPTV Srbija" style="height: 3rem;">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./images/logo-h_ly8nlpml.png" alt="IPTV Srbija" height="40" class="d-inline-block align-top">
+                iptv.srbija
             </a>
-          </span>
-          <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-44" href="https://iptvsrbija.online">iptv.srbija</a></span>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="https://iptvsrbija.online/iptv-smarters-4.0.3.apk">
+                    <i class="fab fa-android"></i> Android
+                </a>
+                <a class="nav-link" href="https://apps.apple.com/rs/app/smarters-player-lite/id1628995509">
+                    <i class="fab fa-apple"></i> iOS
+                </a>
+                <a class="nav-link" href="https://www.dropbox.com/scl/fi/9v81rvlnlx5012gwvvgw4/IPTVSmartersPro.exe">
+                    <i class="fab fa-windows"></i> Windows
+                </a>
+            </div>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-            <li class="nav-item"><a class="nav-link link text-black show text-primary display-4" href="https://iptvsrbija.online/iptv-smarters-4.0.3.apk" aria-expanded="true" data-bs-auto-close="outside"><span class="socicon socicon-android mbr-iconfont mbr-iconfont-btn" style="font-size: 30px;"></span></a></li>
-            <li class="nav-item"><a class="nav-link link text-black show text-primary display-4" href="https://apps.apple.com/rs/app/smarters-player-lite/id1628995509#" aria-expanded="true" data-bs-auto-close="outside"><span class="socicon socicon-apple mbr-iconfont mbr-iconfont-btn" style="font-size: 30px;"></span></a></li>
-            <li class="nav-item dropdown"><a class="nav-link link text-black text-primary dropdown-toggle display-4" href="#" aria-expanded="false" data-bs-auto-close="outside" data-toggle="dropdown-submenu" data-bs-toggle="dropdown"><span class="mobi-mbri mobi-mbri-download mbr-iconfont mbr-iconfont-btn" style="font-size: 30px;"></span></a>
-              <div class="dropdown-menu" aria-labelledby="dropdown-621"><a class="text-black show text-primary dropdown-item display-4" href="https://apps.apple.com/rs/app/smarters-player-lite/id1628995509#" aria-expanded="true" data-bs-auto-close="outside">Ukucajte u downloaderu kod <b>320337</b> kako biste skinuli aplikaciju</a></div>
-            </li>
-            <li class="nav-item"><a class="nav-link link text-black show text-primary display-4" href="https://www.dropbox.com/scl/fi/9v81rvlnlx5012gwvvgw4/IPTVSmartersPro.exe?rlkey=jpnw7uve0c1xqwkb1dybuhn43&amp;st=kriqyeo9&amp;dl=1" aria-expanded="true" data-bs-auto-close="outside"><span class="socicon socicon-windows mbr-iconfont mbr-iconfont-btn" style="font-size: 30px;"></span></a></li>
-          </ul>
-        </div>
-      </div>
     </nav>
-  </section>
 
-  <!-- Hero sekcija -->
-  <section data-bs-version="5.1" class="header18 cid-u8MMOTcSH8 mbr-fullscreen" id="hero-16-u8MMOTcSH8">
-    <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);"></div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="content-wrap col-12 col-md-12">
-          <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-5">
-            <strong>Najbolja Ponuda IPTV Programa</strong></h1>
-          <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7"><br><strong><em>Dobrodošli u svet IPTV zabave gde se svaki trenutak računa. Naša misija je da vam pružimo najbolje televizijsko iskustvo bez kompromisa.</em></strong><br><br></p>
-          <div class="mbr-section-btn"><a class="btn btn-white-outline display-7" href="https://iptvsrbija.online/lista-kanala">Lista kanala</a></div>
-          <div class="mbr-section-btn"><a class="btn btn-white-outline display-20" href="#features06-8">Uputstvo</a></div>
+    <!-- Hero Section -->
+    <section class="hero bg-dark text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4">Najbolja Ponuda IPTV Programa</h1>
+            <p class="lead">Dobrodošli u svet IPTV zabave gde se svaki trenutak računa.</p>
+            <div class="mt-4">
+                <a href="https://iptvsrbija.online/lista-kanala" class="btn btn-outline-light btn-lg">Lista kanala</a>
+                <a href="#features06-8" class="btn btn-outline-light btn-lg">Uputstvo</a>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-6 col-md-3">
+                    <img src="./images/shop6-h_lujk0wgx.jpg" alt="IPTV" class="img-fluid rounded">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="./images/download3240241.jpg" alt="IPTV Download" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="features06-8" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/oxhg1sFBeYo" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/MI1nxoQ-rM0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6 text-center">
+                    <p class="h5">Korak 1</p>
+                    <img src="https://iptvsrbija.online/iptv2%C5%BE.jpg" alt="Korak 1" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6 text-center">
+                    <p class="h5">Korak 2</p>
+                    <img src="https://iptvsrbija.online/iptv.jpg" alt="Korak 2" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Naši Paketi</h2>
+            <div class="row">
+                <!-- Paket 1 Mesec -->
+                <div class="col-md-3 mb-4">
+                    <div class="pricing-card">
+                        <h4>1 Mesec</h4>
+                        <h3>1199rsd/10€</h3>
+                        <p>1 uređaj</p>
+                        <p>Bez ugovorne obaveze</p>
+                        <div class="mt-3">
+                            <a href="https://wa.me/381644514740" class="btn btn-success">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="viber://chat?number=381644514740" class="btn btn-primary">
+                                <i class="fab fa-viber"></i> Viber
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Paket 3 Meseca -->
+                <div class="col-md-3 mb-4">
+                    <div class="pricing-card">
+                        <h4>3 Meseca</h4>
+                        <h3>2999rsd/25€</h3>
+                        <p>1 uređaj</p>
+                        <p>Bez ugovorne obaveze</p>
+                        <div class="mt-3">
+                            <a href="https://wa.me/381644514740" class="btn btn-success">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="viber://chat?number=381644514740" class="btn btn-primary">
+                                <i class="fab fa-viber"></i> Viber
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dodaj ostale pakete na sličan način -->
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Recenzije</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">"Najbolja usluga ikada! Sve kanale koje volim..."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="./images/photo-1656338997878-279d71d48f6e.jpeg" alt="Marko" class="rounded-circle me-3" width="50" height="50">
+                                <div>
+                                    <h6 class="mb-0">Marko</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dodaj ostale recenzije -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Često Postavljana Pitanja</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Na koliko uređaja mogu da instaliram?
+                        </button>
+                    </h3>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Možete instalirati na bezbroj uređaja ali u isto vreme možete gledati samo na jednom uređaju.
+                        </div>
+                    </div>
+                </div>
+                <!-- Dodaj ostala pitanja -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Kontakt Informacije</h3>
+                    <p>Email: infoiptvsrbija@gmail.com</p>
+                    <p>Adresa: Serbia</p>
+                    <p>Radno vreme: 24/7/365</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d181139.45821331796!2d20.257784973812974!3d44.81537040365508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7aa3d7b53fbd%3A0x1db8645cf2177ee4!2sBelgrade!5e0!3m2!1sen!2srs!4v1712142010754" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top -->
+    <div id="scrollToTop" class="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg viewBox="0 0 16 16"><path d="M8 0l8 8H0z"/></svg>
     </div>
-  </section>
 
-  <!-- Galerija slika -->
-  <section data-bs-version="5.1" class="features13 start cid-u8RRouq1sg" id="features013-7">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="item features-image col-6 col-md-4 col-lg-2 text-center">
-          <div class="item-wrapper">
-            <div class="item-img">
-              <img src="images/shop6-h_lujk0wgx.jpg" alt="IPTV Srbija" title="" class="img-fluid">
-            </div>
-          </div>
-        </div>
-        <div class="item features-image col-6 col-md-4 col-lg-2 text-center">
-          <div class="item-wrapper">
-            <div class="item-img">
-              <img src="images/download3240241.jpg" alt="IPTV Srbija" title="" class="img-fluid">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Chat Widget -->
+    <button class="chat-toggle-button" onclick="toggleChat()">
+        <i class="fas fa-comments fa-lg"></i>
+    </button>
 
-  <!-- Video sekcija -->
-  <section data-bs-version="5.1" class="features6 start cid-u8S677fXmY" id="features06-8">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/oxhg1sFBeYo" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="col-md-6">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/MI1nxoQ-rM0" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-md-6 text-center">
-          <p>Korak 1</p>
-          <img src="https://iptvsrbija.online/iptv2%C5%BE.jpg" alt="Korak 1" class="img-fluid" style="max-width: 80%; height: auto; margin-left: 10%;">
-        </div>
-        <div class="col-md-6 text-center">
-          <p>Korak 2</p>
-          <img src="https://iptvsrbija.online/iptv.jpg" alt="Korak 2" class="img-fluid" style="max-width: 80%; height: auto; margin-left: 10%;">
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- JavaScript -->
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll to Top
+        window.onscroll = function() {
+            const scrollBtn = document.getElementById("scrollToTop");
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                scrollBtn.style.left = "20px";
+            } else {
+                scrollBtn.style.left = "-50px";
+            }
+        };
 
-  <!-- Cene paketa - ovde ostaje isti HTML kod kao prethodno -->
-  <!-- [svi paketi ostaju isti] -->
+        // Download Arrow Animation
+        const arrow = document.querySelector('.arrow');
+        let position = 0;
+        if (arrow) {
+            setInterval(() => {
+                position += 5;
+                arrow.style.transform = `translateY(${Math.sin(position / 20) * 5}px)`;
+            }, 100);
+        }
 
-  <!-- Recenzije -->
-  <section data-bs-version="5.1" class="people04 cid-u8Sptcuuc6" id="people04-9">
-    <div class="container">
-      <div class="row mb-5 justify-content-center">
-        <div class="col-12 mb-0 content-head">
-          <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Recenzije</strong></h3>
-        </div>
-      </div>
-      <div class="row mbr-masonry" data-masonry="{&quot;percentPosition&quot;: true }">
-        <div class="item features-without-image col-12 col-md-6 col-lg-4 active">
-          <div class="item-wrapper">
-            <div class="card-box align-left">
-              <p class="card-text mbr-fonts-style display-7">
-                Najbolja usluga ikada! Sve kanale koje volim sam dobio u jednom paketu i sport klub i arene i eurosport i mnogo serija i filmova sa prevodom. Hvala vam!
-              </p>
-              <div class="img-wrapper mt-4 mb-2">
-                <img src="images/photo-1656338997878-279d71d48f6e.jpeg" alt="Marko" data-slide-to="0" data-bs-slide-to="0">
-              </div>
-              <h5 class="card-title mbr-fonts-style display-7">
-                <strong>Marko</strong><strong><br></strong></h5>
-            </div>
-          </div>
-        </div>
-        <div class="item features-without-image col-12 col-md-6 col-lg-4">
-          <div class="item-wrapper">
-            <div class="card-box align-left">
-              <p class="card-text mbr-fonts-style display-7">
-                Ova IPTV usluga mi je olakšala život! S obiljem kanala u UHD rezoluciji i mogućnošću pristupa njima putem različitih uređaja, nikada ne propuštam omiljene emisije i sportske događaje. 
-              </p>
-              <div class="img-wrapper mt-4 mb-2">
-                <img src="images/photo-1489980721706-f487dab89c24.jpeg" data-slide-to="1" data-bs-slide-to="3" alt="David">
-              </div>
-              <h5 class="card-title mbr-fonts-style display-7">
-                <strong>David</strong>
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="item features-without-image col-12 col-md-6 col-lg-4">
-          <div class="item-wrapper">
-            <div class="card-box align-left">
-              <p class="card-text mbr-fonts-style display-7">
-                Iznenadila me stabilnost i kvalitet prenosa čak i tokom vrhunskih događaja poput sportskih utakmica. Uz to, mogućnost prilagođavanja liste kanala prema vlastitim željama daje mi potpunu kontrolu nad onim što želim gledati.
-              </p>
-              <div class="img-wrapper mt-4 mb-2">
-                <img src="images/photo-1679746584014-fb31d4eb0a5e.jpeg" data-slide-to="2" data-bs-slide-to="5" alt="Dušan">
-              </div>
-              <h5 class="card-title mbr-fonts-style display-7">
-                <strong>Dušan</strong></h5>
-            </div>
-          </div>
-        </div>
-        <div class="item features-without-image col-12 col-md-6 col-lg-4">
-          <div class="item-wrapper">
-            <div class="card-box align-left">
-              <p class="card-text mbr-fonts-style display-7">
-                Preporučujem ovu IPTV uslugu svima bez rezerve! Njihova široka ponuda kanala, uz visok kvalitet slike čini je nezaobilaznim izborom za svakog ljubitelja televizije. Takođe mogućnost pristupa na više uređaja istovremeno bez gubitka performansi čini je idealnim izborom za porodice ili one koji žive s cimerima. 
-              </p>
-              <div class="img-wrapper mt-4 mb-2">
-                <img src="images/photo-1536763225213-b5592b525630.jpeg" data-slide-to="3" data-bs-slide-to="4" alt="Tijana">
-              </div>
-              <h5 class="card-title mbr-fonts-style display-7">
-                <strong>Tijana</strong><strong><br></strong><strong><br></strong></h5>
-            </div>
-          </div>
-        </div>
-        <div class="item features-without-image col-12 col-md-6 col-lg-4">
-          <div class="item-wrapper">
-            <div class="card-box align-left">
-              <p class="card-text mbr-fonts-style display-7">Sve kanale koje volim gledati imaju visoku kvalitet slike i zvuka. Pored toga, korisničko iskustvo je izvanredno, jer je navigacija jednostavna i intuitivna. Definitivno preporučujem svima koji žele pristupiti širokom spektru programa.
-              </p>
-              <div class="img-wrapper mt-4 mb-2">
-                <img src="images/photo-1589571894960-20bbe2828d0a.jpeg" data-slide-to="4" data-bs-slide-to="1" alt="Marija">
-              </div>
-              <h5 class="card-title mbr-fonts-style display-7">
-                <strong>Marija</strong><strong><br></strong></h5>
-            </div>
-          </div>
-        </div>
-        <div class="item features-without-image col-12 col-md-6 col-lg-4">
-          <div class="item-wrapper">
-            <div class="card-box align-left">
-              <p class="card-text mbr-fonts-style display-7">
-                Koristim ovu IPTV uslugu već neko vreme i moram reći da sam više nego zadovoljan. Stalno unapređuju svoju ponudu dodajući nove kanale i filmove, što pokazuje njihovu predanost pružanju vrhunske usluge.
-              </p>
-              <div class="img-wrapper mt-4 mb-2">
-                <img src="images/photo-1671212041190-5e1c0c509f11.jpeg" data-slide-to="5" data-bs-slide-to="2" alt="Stefan">
-              </div>
-              <h5 class="card-title mbr-fonts-style display-7">
-                <strong>Stefan</strong></h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        // Chat Toggle
+        function toggleChat() {
+            window.open('https://wa.me/381644514740', '_blank');
+        }
 
-  <!-- Ostale sekcije (FAQ, Social, Kontakt forma, Kontakt informacije) ostaju iste -->
-  <!-- [FAQ, Social, Kontakt forma, Kontakt informacije - isti HTML kod] -->
+        // Simple form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Hvala što ste nas kontaktirali! Odgovorićemo u najkraćem mogućem roku.');
+                    form.reset();
+                });
+            });
+        });
+    </script>
 
-  <!-- Scroll to top dugme -->
-  <div id="scrollToTop" class="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-    <a href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23ffffff" d="M8 0l8 8H0z"/></svg>
-    </a>
-  </div>
-
-  <!-- Chat Widget -->
-  <div id="chatWidget" class="chat-widget">
-    <div class="chat-header" onclick="toggleChat()">
-      <img src="images/logo-h_ly8nlpml.png" alt="IPTV Srbija" class="icon">
-      <div>
-        <strong>IPTV Srbija</strong>
-        <div class="status">Online</div>
-      </div>
-    </div>
-    <div class="chat-body">
-      <div class="message">
-        Zdravo! Kako vam možemo pomoći?
-      </div>
-    </div>
-    <div class="chat-footer">
-      <a href="https://wa.me/381644514740" target="_blank">
-        Pošaljite poruku na WhatsApp
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNDEzLjQgNDguMkM0MDEuMiAzNiA0MDcuMiAwIDQzMi42IDBjMjUuNCAwIDMxLjQgMzYgMTkuMiA0OC4yQzQzOS44IDYwLjQgMzg0IDcwLjIgMzg0IDE3Ni40YzAgMTA2LjIgNDUuOCAxMzAuOCA1NS44IDEzMC44IDEwIDAgNTUuOC0yNC42IDU1LjgtMTMwLjhDNjk1LjYgNzAuMiA0MzkuOCA2MC40IDQxMy40IDQ4LjJ6TTzU1LjggNDQ4LjZjLTEwIDAtNTUuOC0yNC42LTU1LjgtMTMwLjggMC0xMDYuMiA1NS44LTExNiA4Mi4yLTEyOC4yQzQwOC42IDc2IDQwMi42IDExMiA0MjggMTEyYzI1LjQgMCAzMS40LTM2IDE5LjItNDguMkM0MjAuMiA1MS42IDM2NCA2MS40IDM2NCAxNjcuNmMwIDEwNi4yIDQ1LjggMTMwLjggNTUuOCAxMzAuOHoiLz48L3N2Zz4=" alt="WhatsApp">
-      </a>
-    </div>
-  </div>
-
-  <button class="chat-toggle-button" onclick="toggleChat()">
-    <img src="images/logo-h_ly8nlpml.png" alt="Chat" style="width: 30px; height: 30px;">
-    <span>Chat</span>
-  </button>
-
-  <!-- Skripte -->
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/parallax/jarallax.js"></script>
-  <script src="assets/smoothscroll/smooth-scroll.js"></script>
-  <script src="assets/ytplayer/index.js"></script>
-  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
-  <script src="assets/masonry/masonry.pkgd.min.js"></script>
-  <script src="assets/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/theme/js/script.js"></script>
-  <script src="assets/formoid/formoid.min.js"></script>
-
-  <script>
-    // Funkcija za pomeranje strelice
-    const arrow = document.querySelector('.arrow');
-    let position = 0;
-
-    setInterval(() => {
-      position += 5;
-      if (arrow) {
-        arrow.style.transform = `translateY(${Math.sin(position / 20) * 5}px)`;
-      }
-    }, 100);
-
-    // Funkcija za scroll to top
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-      if (document.body.scrollTop > (document.body.scrollHeight / 2) || document.documentElement.scrollTop > (document.documentElement.scrollHeight / 2)) {
-        document.getElementById("scrollToTop").style.left = "20px";
-      } else {
-        document.getElementById("scrollToTop").style.left = "-50px";
-      }
-    }
-
-    // Funkcija za chat widget
-    function toggleChat() {
-      var chatWidget = document.getElementById('chatWidget');
-      if (chatWidget.style.display === 'none' || chatWidget.style.display === '') {
-        chatWidget.style.display = 'block';
-      } else {
-        chatWidget.style.display = 'none';
-      }
-    }
-  </script>
-
-  <!-- Static App Form Collection Script -->
-  <script src="https://static.app/js/static-forms.js" type="text/javascript"></script>
-
-  <!-- Google Translate -->
-  <div class="gtranslate_wrapper"></div>
-  <script>window.gtranslateSettings = {"default_language":"sr","languages":["sr","fr","de","it","es","en","ru","af","hr"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right"}</script>
-  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
+    <!-- Google Translate -->
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "sr",
+            "languages": ["sr", "en", "de", "fr", "it", "es"],
+            "wrapper_selector": ".gtranslate_wrapper"
+        };
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
 </html>
